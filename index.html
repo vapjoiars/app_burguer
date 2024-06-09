@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery de Hambúrguer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Delivery de Hambúrguer</h1>
+    </header>
+    <main>
+        <section class="order-form">
+            <h2>Faça seu Pedido</h2>
+            <form id="orderForm">
+                <label for="customerName">Nome:</label>
+                <input type="text" id="customerName" name="customerName" required>
+
+                <label for="burgerType">Escolha o Hambúrguer:</label>
+                <select id="burgerType" name="burgerType" onchange="calculateTotal()">
+                    <option value="Hambúrguer Clássico" data-price="15">Hambúrguer Clássico - R$15</option>
+                    <option value="Cheeseburger" data-price="18">Cheeseburger - R$18</option>
+                    <option value="Hambúrguer de Frango" data-price="17">Hambúrguer de Frango - R$17</option>
+                    <option value="Hambúrguer Vegano" data-price="20">Hambúrguer Vegano - R$20</option>
+                </select>
+
+                <label for="quantity">Quantidade:</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1" onchange="calculateTotal()">
+
+                <p id="totalPrice">Total: R$15</p>
+
+                <h3>Pagamento via Pix</h3>
+                <p>Chave Pix (CPF): <span id="pixKey">04668918067</span> <button type="button" onclick="copyPixKey()">Copiar</button></p>
+                <p><strong>Importante:</strong> Após o pagamento, encaminhe o comprovante via WhatsApp.</p>
+
+                <button type="button" onclick="getLocation()">Pedir via WhatsApp</button>
+            </form>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
